@@ -1,0 +1,1 @@
+hint "QG: Aucun ennemi en vue pour le moment";

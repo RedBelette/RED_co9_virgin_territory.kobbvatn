@@ -1,0 +1,1 @@
+hint "QG: Le bivouac n’est pas encore localisé";

@@ -1,0 +1,1 @@
+["script\client\outro\cutscene.sqf", false] call TGV_fnc_execScriptOnClients;
