@@ -5,6 +5,8 @@ MIS_fnc_reddition = compile loadFile "function\MIS_fnc_reddition.sqf";
 
 MIS_fnc_callFunctionOnClients = compile loadFile "function\MIS_fnc_callFunctionOnClients.sqf";
 
+MIS_fnc_isPlayerNearEntity = compile loadFile "function\MIS_fnc_isPlayerNearEntity.sqf";
+
 // Permet de démarrer en début de matinée
 // skipTime -4.5;
 
@@ -18,16 +20,29 @@ MIS_fnc_callFunctionOnClients = compile loadFile "function\MIS_fnc_callFunctionO
 	};
 } forEach allUnits;
 
+// Tache de départ
+call compilefinal preprocessFileLineNumbers  "script\task\task1.sqf";
+
+// Résolution des taches
+["startTheGame and spotted", "execVM 'script\task\action\traquer.sqf'"] call TGV_fnc_action;
+["startTheGame and task1 and hqWasContacted", "execVM 'script\task\action\report1.sqf'"] call TGV_fnc_action;
+["startTheGame and task2 and rally", "execVM 'script\task\action\rassemblement.sqf'"] call TGV_fnc_action;
+["startTheGame and task3 and reddition", "execVM 'script\task\action\attaque.sqf'"] call TGV_fnc_action;
+["startTheGame and task4 and bivouacFinded", "execVM 'script\task\action\bivouac.sqf'"] call TGV_fnc_action;
+["startTheGame and task5 and missionEnding", "execVM 'script\task\action\report2.sqf'"] call TGV_fnc_action;
+
+// Renfort timé
+["task1 and hqWasContacted and timedWestInf", "westInf=true;", 300] call TGV_fnc_timedAction;
+["task1 and hqWasContacted and timedWestHeli", "westHeli=true;", 1800] call TGV_fnc_timedAction;
+
 // --- Configuration de l'infantrie allié
 // Cette action forcera les alliés à se rendrent aux combats lorsque la variable westInf sera sur true
-westInf = false;
 ["westInf", "execVM 'script\server\unitcontrol\westInfantrySeekAndDestroy.sqf'"] call TGV_fnc_action;
 // --- Fin configuration de l'infantrie allié
 
 // --- Configuration des hélico
 // Cette action forcera les hélico alliés à se rendrent aux combats lorsque la variable westInf sera sur true
 // La zone de combat des hélico sera raffraichie toutes les x secondes.
-westHeli = false;
 _heliOnPlayerAction = ["[getPos player] execVM 'script\server\unitcontrol\westHelicotSeekAndDestroy.sqf'", 60] call TGV_fnc_repeatedAction; // Création de l'action répété
 
 call TGV_fnc_initActionRegistry; // Création du registre des actions

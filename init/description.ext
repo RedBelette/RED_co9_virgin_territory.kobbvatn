@@ -34,4 +34,10 @@ class CfgMusic
 		name = "Tatu";
 		sound[] = {"\media\music\tatu.ogg", db+10, 1.0};
 	};
+
+	class Silverchair
+	{
+		name = "Silverchair";
+		sound[] = {"\media\music\silverchair.ogg", db+10, 1.0};
+	};
 };
