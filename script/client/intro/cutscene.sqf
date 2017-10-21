@@ -4,6 +4,31 @@ titleCut [" ", "BLACK OUT", 1];
 
 sleep 1;
 
+{
+	_x synchronizeObjectsAdd [player];
+} forEach units cutGroup1;
+
+{
+	_x synchronizeObjectsAdd [player];
+} forEach units cutGroup2;
+
+{
+	_x synchronizeObjectsAdd [player];
+} forEach units cutGroup3;
+
+{
+	_x synchronizeObjectsAdd [player];
+} forEach units cutGroup4;
+
+{
+	_x synchronizeObjectsAdd [player];
+} forEach units cutGroup5;
+
+{
+	_x synchronizeObjectsAdd [player];
+} forEach units cutGroup6;
+
+
 setViewDistance 12000;
 
 sleep 3;
@@ -115,6 +140,7 @@ _camera = "camera" camcreate getPos cam2start;
 _camera cameraEffect ["internal", "back"];
 _camera camSetDir (getPos cam2start vectorFromTo getPos cam2dir);
 _camera camCommit 0;
+waitUntil {camCommitted _camera};
 _camera camSetPos getPos cam2stop;
 _camera camCommit 20;
 
@@ -164,8 +190,10 @@ waitUntil {camCommitted _camera};
 
 titleCut [" ", "BLACK OUT", 0.5];
 sleep 0.5;
-skipTime1 = true;
-publicVariable "skipTime1";
+[] spawn {
+	skipTime1 = true;
+	publicVariable "skipTime1";
+};
 sleep 0.5;
 titleCut [" ", "BLACK IN", 0.5];
 
@@ -195,8 +223,11 @@ waitUntil {camCommitted _camera};
 
 titleCut [" ", "BLACK OUT", 0.5];
 sleep 0.5;
-skipTime2 = true;
-publicVariable "skipTime2";
+[] spawn {
+	skipTime2 = true;
+	publicVariable "skipTime2";
+};
+sleep 0.5;
 titleCut [" ", "BLACK IN", 0.5];
 
 _posCam = getPos leader cutGroup6;
@@ -204,7 +235,7 @@ _posCam = [(_posCam select 0) - 10, (_posCam select 1), 0.2];
 _camera = "camera" camcreate _posCam;
 _camera cameraEffect ["internal", "back"];
 _camera camSetTarget leader cutGroup6;
-_camera camCommit 5;
+_camera camCommit 4.5;
 
 waitUntil {camCommitted _camera};
 
@@ -219,8 +250,10 @@ waitUntil {camCommitted _camera};
 
 titleCut [" ", "BLACK OUT", 0];
 sleep 0.5;
-skipTime3 = true;
-publicVariable "skipTime3";
+[] spawn {
+	skipTime3 = true;
+	publicVariable "skipTime3";
+};
 sleep 0.5;
 titleCut [" ", "BLACK IN", 0];
 
@@ -254,8 +287,10 @@ waitUntil {camCommitted _camera};
 
 titleCut [" ", "BLACK OUT", 0];
 sleep 1;
-skipTime4 = true;
-publicVariable "skipTime4";
+[] spawn {
+	skipTime4 = true;
+	publicVariable "skipTime4";
+};
 sleep 1;
 titleCut [" ", "BLACK IN", 0];
 
@@ -271,8 +306,10 @@ waitUntil {camCommitted _camera};
 
 titleCut [" ", "BLACK OUT", 0];
 sleep 1;
-skipTime5 = true;
-publicVariable "skipTime5";
+[] spawn {
+	skipTime5 = true;
+	publicVariable "skipTime5";
+};
 sleep 1;
 titleCut [" ", "BLACK IN", 0];
 
@@ -302,8 +339,10 @@ waitUntil {camCommitted _camera};*/
 
 titleCut [" ", "BLACK OUT", 0.5];
 sleep 1;
-skipTime6 = true;
-publicVariable "skipTime6";
+[] spawn {
+	skipTime6 = true;
+	publicVariable "skipTime6";
+};
 sleep 1;
 titleCut [" ", "BLACK IN", 0.5];
 
@@ -317,6 +356,8 @@ _camera cameraEffect ["internal", "back"];
 _camera camSetDir (getPos cam3start vectorFromTo getPos cam3dir);
 _camera camCommit 0;
 
+waitUntil {camCommitted _camera};
+
 sleep 5;
 
 titleCut [" ", "BLACK OUT", 0];
@@ -328,6 +369,8 @@ _camera = "camera" camcreate getPos cam4start;
 _camera cameraEffect ["internal", "back"];
 _camera camSetDir (getPos cam4start vectorFromTo getPos cam4dir);
 _camera camCommit 0;
+
+waitUntil {camCommitted _camera};
 
 sleep 5;
 
@@ -392,8 +435,10 @@ Nous les débusquerons avant l’aurore
 titleCut [" ", "BLACK OUT", 0.5];
 sleep 1;
 
-skipTime7 = true;
-publicVariable "skipTime7";
+[] spawn {
+	skipTime7 = true;
+	publicVariable "skipTime7";
+};
 
 // Message de fin d'intro
 _handle = [parseText format [ "<t align='center' size='2'>%1</t>", toUpper "NOUS AVONS PASSE 3 JOURS A LES TRAQUER"], [0,0,1,1], [10,1], 3, 0.7, 0] spawn BIS_fnc_textTiles;
@@ -409,9 +454,10 @@ sleep 1;
 
 titleCut [" ", "BLACK IN", 1];
 
-
-startTheGame = true;
-publicVariable "startTheGame";
+[] spawn {
+	startTheGame = true;
+	publicVariable "startTheGame";
+};
 
 setViewDistance _defaultViewDistance;
 
