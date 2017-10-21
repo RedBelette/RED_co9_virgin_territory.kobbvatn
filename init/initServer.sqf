@@ -53,4 +53,15 @@ call TGV_fnc_initActionRegistry; // Création du registre des actions
 
 // --- Fin configuration des hélico
 
-["[20, east] call MIS_fnc_reddition", 25] call TGV_fnc_repeatedAction;
+
+// 20 + 12 (intro)
+["[32, east] call MIS_fnc_reddition", 25] call TGV_fnc_repeatedAction;
+
+// Passer le temp
+["skipTime1", "[8.5] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
+["skipTime2", "[8.5] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
+["skipTime3", "[8.5] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
+["skipTime4", "[8.5] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
+["skipTime5", "[8.5] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
+["skipTime6", "[8.5] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
+["skipTime7", "[8.5] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;

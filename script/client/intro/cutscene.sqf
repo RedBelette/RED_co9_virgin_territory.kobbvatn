@@ -165,12 +165,8 @@ waitUntil {camCommitted _camera};
 titleCut [" ", "BLACK OUT", 0.5];
 sleep 0.5;
 skipTime 8.5;
-// SHOW TIME
-_hour = floor daytime;
-_minute = floor ((daytime - _hour) * 60);
-_time24 = text format ["%1:%2:%3",_hour,_minute];
-hint _time24;
-//
+skipTime1 = true;
+publicVariable "skipTime1";
 sleep 0.5;
 titleCut [" ", "BLACK IN", 0.5];
 
@@ -201,12 +197,8 @@ waitUntil {camCommitted _camera};
 titleCut [" ", "BLACK OUT", 0.5];
 sleep 0.5;
 skipTime 1.5;
-// SHOW TIME
-_hour = floor daytime;
-_minute = floor ((daytime - _hour) * 60);
-_time24 = text format ["%1:%2:%3",_hour,_minute];
-hint _time24;
-//
+skipTime2 = true;
+publicVariable "skipTime2";
 titleCut [" ", "BLACK IN", 0.5];
 
 _posCam = getPos leader cutGroup6;
@@ -230,12 +222,8 @@ waitUntil {camCommitted _camera};
 titleCut [" ", "BLACK OUT", 0];
 sleep 0.5;
 skipTime 0.5;
-// SHOW TIME
-_hour = floor daytime;
-_minute = floor ((daytime - _hour) * 60);
-_time24 = text format ["%1:%2:%3",_hour,_minute];
-hint _time24;
-//
+skipTime3 = true;
+publicVariable "skipTime3";
 sleep 0.5;
 titleCut [" ", "BLACK IN", 0];
 
@@ -270,12 +258,8 @@ waitUntil {camCommitted _camera};
 titleCut [" ", "BLACK OUT", 0];
 sleep 1;
 skipTime 8;
-// SHOW TIME
-_hour = floor daytime;
-_minute = floor ((daytime - _hour) * 60);
-_time24 = text format ["%1:%2:%3",_hour,_minute];
-hint _time24;
-//
+skipTime4 = true;
+publicVariable "skipTime4";
 sleep 1;
 titleCut [" ", "BLACK IN", 0];
 
@@ -292,12 +276,8 @@ waitUntil {camCommitted _camera};
 titleCut [" ", "BLACK OUT", 0];
 sleep 1;
 skipTime 4;
-// SHOW TIME
-_hour = floor daytime;
-_minute = floor ((daytime - _hour) * 60);
-_time24 = text format ["%1:%2:%3",_hour,_minute];
-hint _time24;
-//
+skipTime5 = true;
+publicVariable "skipTime5";
 sleep 1;
 titleCut [" ", "BLACK IN", 0];
 
@@ -310,15 +290,9 @@ _camera camCommit 10;
 
 waitUntil {camCommitted _camera};
 
-titleCut [" ", "BLACK OUT", 0];
+/*titleCut [" ", "BLACK OUT", 0];
 sleep 1;
 skipTime 4;
-// SHOW TIME
-_hour = floor daytime;
-_minute = floor ((daytime - _hour) * 60);
-_time24 = text format ["%1:%2:%3",_hour,_minute];
-hint _time24;
-//
 sleep 1;
 titleCut [" ", "BLACK IN", 0];
 
@@ -329,17 +303,13 @@ _camera cameraEffect ["internal", "back"];
 _camera camSetTarget leader cutGroup6;
 _camera camCommit 5;
 
-waitUntil {camCommitted _camera};
+waitUntil {camCommitted _camera};*/
 
 titleCut [" ", "BLACK OUT", 0.5];
 sleep 1;
-skipTime 6;
-// SHOW TIME
-_hour = floor daytime;
-_minute = floor ((daytime - _hour) * 60);
-_time24 = text format ["%1:%2:%3",_hour,_minute];
-hint _time24;
-//
+skipTime 10;
+skipTime6 = true;
+publicVariable "skipTime6";
 sleep 1;
 titleCut [" ", "BLACK IN", 0.5];
 
@@ -347,6 +317,7 @@ cam3soldier switchMove "AidlPsitMstpSnonWnonDnon_ground00";
 _newPos = getPos cam3soldier;
 cam3soldier setPos [_newPos select 0, _newPos select 1, 0.05];
 
+// Vue sur ak
 _camera = "camera" camcreate getPos cam3start;
 _camera cameraEffect ["internal", "back"];
 _camera camSetDir (getPos cam3start vectorFromTo getPos cam3dir);
@@ -358,6 +329,7 @@ titleCut [" ", "BLACK OUT", 0];
 sleep 0.5;
 titleCut [" ", "BLACK IN", 0];
 
+// Vue paysage
 _camera = "camera" camcreate getPos cam4start;
 _camera cameraEffect ["internal", "back"];
 _camera camSetDir (getPos cam4start vectorFromTo getPos cam4dir);
@@ -369,6 +341,7 @@ titleCut [" ", "BLACK OUT", 0];
 sleep 0.5;
 titleCut [" ", "BLACK IN", 0];
 
+// Travelling sur bivouac
 _camera = "camera" camcreate getPos cam4start;
 _camera cameraEffect ["internal", "back"];
 _camera camSetTarget leader cam3soldier;
@@ -413,17 +386,42 @@ _camera = "camera" camcreate getPos cam3start_5;
 _camera cameraEffect ["internal", "back"];
 _camera camSetTarget leader cam3soldier;
 _camera camSetPos getPos lastcam;
-_camera camCommit 40;
+_camera camCommit 45;
 
 waitUntil {camCommitted _camera};
 
+/*Nous avons passé 3 jours à les traquer
+Cela a assez durée
+Nous les débusquerons avant l’aurore
+-	Nom du game leader*/
 
+titleCut [" ", "BLACK OUT", 0.5];
+sleep 1;
+
+skipTime 12.2;
+skipTime7 = true;
+publicVariable "skipTime7";
+
+// Message de fin d'intro
+_handle = [parseText format [ "<t align='center' size='2'>%1</t>", toUpper "NOUS AVONS PASSE 3 JOURS A LES TRAQUER"], [0,0,1,1], [10,1], 3, 0.7, 0] spawn BIS_fnc_textTiles;
+waitUntil {scriptDone _handle};
+
+_handle = [parseText format [ "<t align='center' size='2'>%1</t>", toUpper "CELA A ASSEZ DUREE"], [0,0,1,1], [10,1], 3, 0.7, 0] spawn BIS_fnc_textTiles;
+waitUntil {scriptDone _handle};
+
+_handle = [parseText format [ "<t align='center' size='2'>%1</t>", toUpper "NOUS LES DEBUSQUERONS AVANT L'AURORE"], [0,0,1,1], [10,1], 3, 0.7, 0] spawn BIS_fnc_textTiles;
+waitUntil {scriptDone _handle};
+
+sleep 1;
+
+titleCut [" ", "BLACK IN", 1];
+
+
+startTheGame = true;
+publicVariable "startTheGame";
 
 setViewDistance _defaultViewDistance;
 
 camDestroy _camera;
 
 player cameraEffect ["terminate","back"];
-
-startTheGame = true;
-publicVariable "startTheGame";
