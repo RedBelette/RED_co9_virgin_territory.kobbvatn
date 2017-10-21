@@ -59,9 +59,9 @@ call TGV_fnc_initActionRegistry; // Création du registre des actions
 
 // Passer le temp
 ["skipTime1", "[8.5] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
-["skipTime2", "[8.5] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
-["skipTime3", "[8.5] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
-["skipTime4", "[8.5] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
-["skipTime5", "[8.5] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
-["skipTime6", "[8.5] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
-["skipTime7", "[8.5] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
+["skipTime2", "[1.5] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
+["skipTime3", "[0.5] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
+["skipTime4", "[8] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
+["skipTime5", "[4] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
+["skipTime6", "[10] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;
+["skipTime7", "[12.2] execVM 'script\server\time\skipTime.sqf'"] call TGV_fnc_action;

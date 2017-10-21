@@ -164,7 +164,6 @@ waitUntil {camCommitted _camera};
 
 titleCut [" ", "BLACK OUT", 0.5];
 sleep 0.5;
-skipTime 8.5;
 skipTime1 = true;
 publicVariable "skipTime1";
 sleep 0.5;
@@ -196,7 +195,6 @@ waitUntil {camCommitted _camera};
 
 titleCut [" ", "BLACK OUT", 0.5];
 sleep 0.5;
-skipTime 1.5;
 skipTime2 = true;
 publicVariable "skipTime2";
 titleCut [" ", "BLACK IN", 0.5];
@@ -221,7 +219,6 @@ waitUntil {camCommitted _camera};
 
 titleCut [" ", "BLACK OUT", 0];
 sleep 0.5;
-skipTime 0.5;
 skipTime3 = true;
 publicVariable "skipTime3";
 sleep 0.5;
@@ -257,7 +254,6 @@ waitUntil {camCommitted _camera};
 
 titleCut [" ", "BLACK OUT", 0];
 sleep 1;
-skipTime 8;
 skipTime4 = true;
 publicVariable "skipTime4";
 sleep 1;
@@ -275,7 +271,6 @@ waitUntil {camCommitted _camera};
 
 titleCut [" ", "BLACK OUT", 0];
 sleep 1;
-skipTime 4;
 skipTime5 = true;
 publicVariable "skipTime5";
 sleep 1;
@@ -307,7 +302,6 @@ waitUntil {camCommitted _camera};*/
 
 titleCut [" ", "BLACK OUT", 0.5];
 sleep 1;
-skipTime 10;
 skipTime6 = true;
 publicVariable "skipTime6";
 sleep 1;
@@ -398,7 +392,6 @@ Nous les débusquerons avant l’aurore
 titleCut [" ", "BLACK OUT", 0.5];
 sleep 1;
 
-skipTime 12.2;
 skipTime7 = true;
 publicVariable "skipTime7";
 
