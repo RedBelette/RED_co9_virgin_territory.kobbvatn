@@ -464,3 +464,5 @@ setViewDistance _defaultViewDistance;
 camDestroy _camera;
 
 player cameraEffect ["terminate","back"];
+
+player action["NVGoggles", player];
