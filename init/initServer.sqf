@@ -7,6 +7,8 @@ MIS_fnc_callFunctionOnClients = compile loadFile "function\MIS_fnc_callFunctionO
 
 MIS_fnc_isPlayerNearEntity = compile loadFile "function\MIS_fnc_isPlayerNearEntity.sqf";
 
+MIS_fnc_clientSync = compile loadFile "function\MIS_fnc_clientSync.sqf";
+
 // Permet de démarrer en début de matinée
 // skipTime -4.5;
 

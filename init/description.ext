@@ -41,3 +41,15 @@ class CfgMusic
 		sound[] = {"\media\music\silverchair.ogg", db+10, 1.0};
 	};
 };
+
+
+class CfgSounds
+{
+	sounds[] = {};
+	class SoldierTalkingRadio
+	{
+		name = "SoldierTalkingRadio";
+		sound[] = {"media\sound\soldier-talking-radio.ogg", 0.8, 1, 100};
+		titles[] = {0,""};
+	};
+};

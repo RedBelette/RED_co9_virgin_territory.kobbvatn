@@ -222,12 +222,14 @@ _camera camCommit 4;
 waitUntil {camCommitted _camera};
 
 titleCut [" ", "BLACK OUT", 0.5];
-sleep 0.5;
+sleep 1;
 [] spawn {
 	skipTime2 = true;
 	publicVariable "skipTime2";
 };
-sleep 0.5;
+/*[["skipTime2Wait", "skipTime2"], "script\server\sync\clientSync.sqf"] remoteExec ["execVM", 2];
+waitUntil {!isNil "skipTime2Wait"};*/
+sleep 1;
 titleCut [" ", "BLACK IN", 0.5];
 
 _posCam = getPos leader cutGroup6;
@@ -235,7 +237,7 @@ _posCam = [(_posCam select 0) - 10, (_posCam select 1), 0.2];
 _camera = "camera" camcreate _posCam;
 _camera cameraEffect ["internal", "back"];
 _camera camSetTarget leader cutGroup6;
-_camera camCommit 4.5;
+_camera camCommit 4;
 
 waitUntil {camCommitted _camera};
 
@@ -244,7 +246,7 @@ _posCam = [(_posCam select 0) + 10, (_posCam select 1), 2];
 _camera = "camera" camcreate _posCam;
 _camera cameraEffect ["internal", "back"];
 _camera camSetTarget leader cutGroup5;
-_camera camCommit 5;
+_camera camCommit 4;
 
 waitUntil {camCommitted _camera};
 
@@ -343,6 +345,8 @@ sleep 1;
 	skipTime6 = true;
 	publicVariable "skipTime6";
 };
+/*[["skipTime6Wait", "skipTime6"], "script\server\sync\clientSync.sqf"] remoteExec ["execVM", 2];
+waitUntil {!isNil "skipTime6Wait"};*/
 sleep 1;
 titleCut [" ", "BLACK IN", 0.5];
 
@@ -440,6 +444,9 @@ sleep 1;
 	publicVariable "skipTime7";
 };
 
+/*[["skipTime7Wait", "skipTime7"], "script\server\sync\clientSync.sqf"] remoteExec ["execVM", 2];
+waitUntil {!isNil "skipTime7Wait"};*/
+
 // Message de fin d'intro
 _handle = [parseText format [ "<t align='center' size='2'>%1</t>", toUpper "NOUS AVONS PASSE 3 JOURS A LES TRAQUER"], [0,0,1,1], [10,1], 3, 0.7, 0] spawn BIS_fnc_textTiles;
 waitUntil {scriptDone _handle};
@@ -462,6 +469,11 @@ titleCut [" ", "BLACK IN", 1];
 setViewDistance _defaultViewDistance;
 
 camDestroy _camera;
+
+_startPlayerPos = player getVariable "startPos";
+if (isNil "_startPlayerPos") then {
+	player setPos _startPlayerPos;
+};
 
 player cameraEffect ["terminate","back"];
 
